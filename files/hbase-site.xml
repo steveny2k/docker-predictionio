@@ -1,0 +1,10 @@
+<configuration>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>file://VAR_PIO_HOME/vendors/hbase-VAR_HBASE_VERSION/data</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value>VAR_PIO_HOME/vendors/zookeeper</value>
+  </property>
+</configuration>
