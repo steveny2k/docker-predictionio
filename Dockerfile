@@ -34,3 +34,6 @@ RUN rm hbase-${HBASE_VERSION}-bin.tar.gz
 ADD files/hbase-site.xml ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-site.xml
 RUN sed -i "s|VAR_PIO_HOME|${PIO_HOME}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-site.xml
 RUN sed -i "s|VAR_HBASE_VERSION|${HBASE_VERSION}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-site.xml
+
+#triggers fetching the complete sbt environment
+RUN ${PIO_HOME}/sbt/sbt -batch
