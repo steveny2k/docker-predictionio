@@ -38,9 +38,3 @@ RUN sed -i "s|VAR_PIO_HOME|${PIO_HOME}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSI
 
 #triggers fetching the complete sbt environment
 RUN ${PIO_HOME}/sbt/sbt -batch
-
-# clean
-RUN apt-get remove -y python-pip curl \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean autoclean \
-    && apt-get autoremove -y
