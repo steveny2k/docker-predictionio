@@ -11,8 +11,10 @@ ENV PATH=${PIO_HOME}/bin:$PATH
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl openjdk-7-jdk libgfortran3 python-pip \
-    && pip install predictionio
+    && apt-get install -y --auto-remove --no-install-recommends curl openjdk-7-jdk libgfortran3 python-pip \
+    && pip install predictionio \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN curl -O https://d8k1yxp8elc6b.cloudfront.net/PredictionIO-${PIO_VERSION}.tar.gz \
     && tar -xvzf PredictionIO-${PIO_VERSION}.tar.gz -C / && mkdir -p ${PIO_HOME}/vendors \
