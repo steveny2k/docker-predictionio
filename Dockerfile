@@ -1,18 +1,17 @@
 FROM ubuntu
 MAINTAINER Fabian M. Borschel <fabian.borschel@commercetools.de>
 
-ENV PIO_VERSION 0.9.5
+ENV PIO_VERSION 0.9.6
 ENV SPARK_VERSION 1.5.1
 ENV ELASTICSEARCH_VERSION 1.4.4
 ENV HBASE_VERSION 1.0.0
 
 ENV PIO_HOME /PredictionIO-${PIO_VERSION}
 ENV PATH=${PIO_HOME}/bin:$PATH
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 RUN apt-get update \
-    && apt-get install -y --auto-remove --no-install-recommends curl openjdk-7-jdk libgfortran3 python-pip \
-    && pip install predictionio \
+    && apt-get install -y --auto-remove --no-install-recommends curl openjdk-8-jdk libgfortran3 python-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
