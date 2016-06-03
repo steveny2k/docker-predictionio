@@ -8,13 +8,21 @@ server for developers and data scientists to build and deploy predictive
 applications in a fraction of the time.
 
 This container uses Apache Spark, HBase and Elasticsearch.
-Use it interactively for development:
+
+####Use it interactively for development:
 
 ```Bash
 $ docker run -it -v $HOME/MyEngine:/MyEngine sphereio/predictionio /bin/bash
 ```
 
-Or create your own deployable docker container:
+Then in container 
+```Bash
+$ pio-start-all
+$ pio status
+```
+
+
+####Or create your own deployable docker container:
 
 ```Dockerfile
 FROM sphereio/predictionio
