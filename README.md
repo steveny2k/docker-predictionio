@@ -12,7 +12,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
 ####Use it interactively for development:
 
 ```Bash
-$ docker run -it -v $HOME/MyEngine:/MyEngine sphereio/predictionio /bin/bash
+$ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
 ```
 
 Then in container 
