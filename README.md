@@ -12,13 +12,13 @@ This container uses Apache Spark, HBase and Elasticsearch.
 
 ####Use it interactively for development:
 1. First, do either A) or B)
-⋅⋅* A) obtain docker image from public docker registry:
+*** A) obtain docker image from public docker registry:
 
 ```Bash
 $ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
 ```
 ⋅⋅* B) build docker image from local Dockerfile:
-⋅⋅⋅ cd to the path containing the Dockerfile, then:
+⋅⋅⋅cd to the path containing the Dockerfile, then:
 ```Bash
 $ docker build -t predictionio .
 ```
@@ -28,7 +28,7 @@ $ docker run -name predictionio_instance -it predictionio
 ```
 
 2. After finishing either A) or B) above,
-⋅⋅⋅ then in container 
+⋅⋅⋅then in container 
 ```Bash
 $ pio-start-all
 $ pio status
