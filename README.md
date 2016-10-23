@@ -1,3 +1,4 @@
+This project is developed and tested on OSX 10.11.6
 
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
@@ -25,7 +26,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
     then:
     
     ```Bash
-    $ docker run -name predictionio_instance -it predictionio
+    $ docker run --name predictionio_instance -it predictionio
     ```
 
 2. After finishing either i) or ii) above,
