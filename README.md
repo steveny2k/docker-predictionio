@@ -14,25 +14,26 @@ This container uses Apache Spark, HBase and Elasticsearch.
 1. First, do either i) or ii) below
   1. obtain docker image from public docker registry:
 
-  ```Bash
-  $ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
-  ```
-  2. build docker image from local Dockerfile:
-    cd to the path containing the Dockerfile, then:
-```Bash
-$ docker build -t predictionio .
-```
+    ```Bash
+    $ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
+    ```
+  2. build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
+    
+    ```Bash
+    $ docker build -t predictionio .
+    ```
     then:
-```Bash
-$ docker run -name predictionio_instance -it predictionio
-```
+    
+    ```Bash
+    $ docker run -name predictionio_instance -it predictionio
+    ```
 
 2. After finishing either i) or ii) above,
   then in container 
-```Bash
-$ pio-start-all
-$ pio status
-```
+  ```Bash
+  $ pio-start-all
+  $ pio status
+  ```
 
 
 
