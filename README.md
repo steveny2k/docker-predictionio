@@ -15,12 +15,12 @@ This container uses Apache Spark, HBase and Elasticsearch.
 
 ####Use it interactively for development:
 1. First, do either i) or ii) below
-  1. obtain docker image from public docker registry:
+  1. (faster) obtain docker image from public docker registry:
 
     ```Bash
     $ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
     ```
-  2. build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
+  2. (slower) build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
     
     ```Bash
     $ docker build -t predictionio .
