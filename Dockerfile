@@ -1,12 +1,12 @@
 FROM ubuntu
-MAINTAINER Fabian M. Borschel <fabian.borschel@commercetools.de>
+MAINTAINER Steven Yan
 
-ENV PIO_VERSION 0.9.6
+ENV PIO_VERSION 0.10.0
 ENV SPARK_VERSION 1.5.1
 ENV ELASTICSEARCH_VERSION 1.4.4
 ENV HBASE_VERSION 1.0.0
 
-ENV PIO_HOME /PredictionIO-${PIO_VERSION}
+ENV PIO_HOME /PredictionIO-${PIO_VERSION}-incubating
 ENV PATH=${PIO_HOME}/bin:$PATH
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
@@ -15,9 +15,15 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -O https://d8k1yxp8elc6b.cloudfront.net/PredictionIO-${PIO_VERSION}.tar.gz \
-    && tar -xvzf PredictionIO-${PIO_VERSION}.tar.gz -C / && mkdir -p ${PIO_HOME}/vendors \
-    && rm PredictionIO-${PIO_VERSION}.tar.gz
+RUN curl -O http://mirror.nexcess.net/apache/incubator/predictionio/${PIO_VERSION}-incubating/apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
+    && tar -xvzf apache-predictionio-${PIO_VERSION}-incubating.tar.gz -C / \
+    && rm apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
+    && cd apache-predictionio-${PIO_VERSION}-incubating \
+    && ./make-distribution.sh
+
+RUN tar zxvf /apache-predictionio-${PIO_VERSION}-incubating/PredictionIO-${PIO_VERSION}-incubating.tar.gz -C /
+RUN rm -r /apache-predictionio-${PIO_VERSION}-incubating
+RUN mkdir /${PIO_HOME}/vendors
 COPY files/pio-env.sh ${PIO_HOME}/conf/pio-env.sh
 
 RUN curl -O http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop2.6.tgz \
@@ -37,5 +43,27 @@ COPY files/hbase-site.xml ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-
 RUN sed -i "s|VAR_PIO_HOME|${PIO_HOME}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-site.xml \
     && sed -i "s|VAR_HBASE_VERSION|${HBASE_VERSION}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSION}/conf/hbase-site.xml
 
-#triggers fetching the complete sbt environment
-RUN ${PIO_HOME}/sbt/sbt -batch
+#prepare example: Similar Product Engine Template
+#(http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
+#RUN pio template get apache/incubator-predictionio-template-similar-product MySimilarProduct
+#RUN cd MySimilarProduct
+#RUN pio app new MyApp1
+#
+#RUN pip install -U setuptools
+#RUN pip install predictionio
+
+
+#prepare example: Demo-Tapster
+#RUN apt-get install git ruby build-essential make
+#RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+#RUN curl -L https://get.rvm.io | bash -s stable
+#RUN touch ~/.bash_profile
+#RUN export PATH=$PATH:/usr/local/rvm/bin:/usr/local/rvm/sbin
+#RUN source ~/.bash_profile
+#RUN rvm install ruby-2.2.2
+#RUN ln -s /usr/local/rvm/rubies/ruby-2.2.2/bin/ruby /usr/bin/ruby
+#
+#RUN gem install bundler
+#RUN git clone https://github.com/PredictionIO/Demo-Tapster.git
+#RUN cd Demo-Tapster
+#RUN bundle install
