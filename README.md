@@ -29,7 +29,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
     then:
     
     ```Bash
-    $ docker run --name predictionio_instance -it predictionio
+    $ docker run -p 8000:8000 --name predictionio_instance -it predictionio
     ```
 
 2. Try examples
