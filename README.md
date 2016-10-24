@@ -1,8 +1,9 @@
-This docker works for me.
+This project is derived from sphereio/docker-predictionio
 
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
 
+(to modify)
 [![Docker build](http://dockeri.co/image/sphereio/predictionio)](https://registry.hub.docker.com/u/sphereio/predictionio/)
 
 [PredictionIO](https://prediction.io) is an open-source Machine Learning
@@ -12,41 +13,32 @@ applications in a fraction of the time.
 This container uses Apache Spark, HBase and Elasticsearch.
 
 ####Use it interactively for development:
+1. First, do either i) or ii) below
+  1. (faster; but may be outdated) obtain docker image from public docker registry:
 
-```Bash
-$ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
-```
+    ```Bash
+    $ docker run -it -v $HOME/MyEngine:/MyEngine -p 8000:8000 sphereio/predictionio /bin/bash
+    ```
+  2. (slower) build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
+    
+    ```Bash
+    $ docker build -t predictionio .
+    ```
+    then:
+    
+    ```Bash
+    $ docker run -p 8000:8000 --name predictionio_instance -it predictionio
+    ```
+    
+2. Then in docker container, start all services and check they are started
+  ```Bash
+  $ pio-start-all
+  $ jps -l
+  ```
 
-Then in container 
-```Bash
-$ pio-start-all
-$ pio status
-```
+3. Try examples
+  1. Similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
+    1. 
 
 
-####Or create your own deployable docker container:
 
-```Dockerfile
-FROM sphereio/predictionio
-
-ADD MyEngine /MyEngine
-
-EXPOSE 8000
-
-ADD run.sh /run.sh
-
-ENTRYPOINT /run.sh
-```
-
-and run.sh:
-
-```Bash
-#!/bin/bash
-
-set -e
-
-pio-start-all
-cd /MyEngine
-pio build --verbose
-pio deploy
-```
