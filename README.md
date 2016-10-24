@@ -29,8 +29,14 @@ This container uses Apache Spark, HBase and Elasticsearch.
     ```Bash
     $ docker run -p 8000:8000 --name predictionio_instance -it predictionio
     ```
+    
+2. Then in docker container, start all services and check they are started
+  ```Bash
+  $ pio-start-all
+  $ jps -l
+  ```
 
-2. Try examples
+3. Try examples
   1. Similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
     1. 
 
