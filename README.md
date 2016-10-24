@@ -5,6 +5,7 @@ This project is tested on OSX 10.11.6
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
 
+(to-do)
 [![Docker build](http://dockeri.co/image/sphereio/predictionio)](https://registry.hub.docker.com/u/sphereio/predictionio/)
 
 [PredictionIO](https://prediction.io) is an open-source Machine Learning
@@ -31,12 +32,9 @@ This container uses Apache Spark, HBase and Elasticsearch.
     $ docker run --name predictionio_instance -it predictionio
     ```
 
-2. After finishing either i) or ii) above,
-  then in container 
-  ```Bash
-  $ pio-start-all
-  $ pio status
-  ```
+2. Try examples
+  1. Similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
+    1. 
 
 
 
