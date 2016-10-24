@@ -1,6 +1,4 @@
-This project is tested on OSX 10.11.6
-
-  (project is derived from sphereio/docker-predictionio)
+This project is derived from sphereio/docker-predictionio
 
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
