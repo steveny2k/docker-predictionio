@@ -26,7 +26,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
     then:
     
     ```Bash
-    $ docker run -p 8000:8000 --name predictionio_instance -it predictionio
+    $ docker run -p 8000:8000 --name predictionio_instance -it predictionio /bin/bash
     ```
     
 2. Then in docker container, start all services and check they are started
