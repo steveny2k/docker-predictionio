@@ -9,7 +9,7 @@ Docker container for PredictionIO-based machine learning services
 server for developers and data scientists to build and deploy predictive
 applications in a fraction of the time.
 
-This container uses Apache Spark, HBase and Elasticsearch.
+This container uses Apache Spark, HBase and Elasticsearch. The PredictionIO version is the latest stable version 0.10.0.
 
 ####Use it interactively for development:
 1. First, do either i) or ii) below
