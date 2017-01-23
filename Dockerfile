@@ -15,6 +15,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
 RUN curl -O http://mirror.nexcess.net/apache/incubator/predictionio/${PIO_VERSION}-incubating/apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
     && tar -xvzf apache-predictionio-${PIO_VERSION}-incubating.tar.gz -C / \
     && rm apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
@@ -54,16 +55,16 @@ RUN sed -i "s|VAR_PIO_HOME|${PIO_HOME}|" ${PIO_HOME}/vendors/hbase-${HBASE_VERSI
 
 
 #prepare example: Demo-Tapster
-#RUN apt-get install git ruby build-essential make
-#RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-#RUN curl -L https://get.rvm.io | bash -s stable
-#RUN touch ~/.bash_profile
-#RUN export PATH=$PATH:/usr/local/rvm/bin:/usr/local/rvm/sbin
-#RUN source ~/.bash_profile
-#RUN rvm install ruby-2.2.2
-#RUN ln -s /usr/local/rvm/rubies/ruby-2.2.2/bin/ruby /usr/bin/ruby
-#
-#RUN gem install bundler
-#RUN git clone https://github.com/PredictionIO/Demo-Tapster.git
-#RUN cd Demo-Tapster
-#RUN bundle install
+RUN apt-get install git ruby build-essential make
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+RUN curl -L https://get.rvm.io | bash -s stable
+RUN touch ~/.bash_profile
+RUN export PATH=$PATH:/usr/local/rvm/bin:/usr/local/rvm/sbin
+RUN source ~/.bash_profile
+RUN rvm install ruby-2.2.2
+RUN ln -s /usr/local/rvm/rubies/ruby-2.2.2/bin/ruby /usr/bin/ruby
+
+RUN gem install bundler
+RUN git clone https://github.com/PredictionIO/Demo-Tapster.git
+RUN cd Demo-Tapster
+RUN bundle install
