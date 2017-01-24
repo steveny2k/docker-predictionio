@@ -83,8 +83,9 @@ RUN curl -L https://get.rvm.io | bash -s stable \
   && /bin/bash -c "source ~/.bash_profile" \
   && rvm install ruby-2.2.2 \
   && ln -s /usr/local/rvm/rubies/ruby-2.2.2/bin/ruby /usr/bin/ruby \
+  && gem install bundler \
+  && git clone https://github.com/PredictionIO/Demo-Tapster.git \
+  && cd Demo-Tapster \
+  && bundle install
 
-RUN gem install bundler
-RUN git clone https://github.com/PredictionIO/Demo-Tapster.git
-RUN cd Demo-Tapster
-RUN bundle install
+  
