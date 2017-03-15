@@ -13,7 +13,7 @@ This container uses Apache Spark, HBase and Elasticsearch. The PredictionIO vers
 
 ####Use it interactively for development:
 1. First, do either i) or ii) below
-  1. (faster; but may be outdated) obtain docker image from public docker registry:
+  1. (faster; stable version) obtain docker image from public docker registry:
 
     ```Bash
     $ docker run -it -p 8000:8000 steveny/predictionio /bin/bash
