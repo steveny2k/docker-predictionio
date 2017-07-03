@@ -34,6 +34,9 @@ This container uses Apache Spark, HBase and Elasticsearch. The PredictionIO vers
 2. Then in docker container, start all services and check they are started
   ```Bash
   $ pio-start-all
+  or 
+  $ pio eventserver &  # if using PostgreSQL or MySQL
+  $
   $ jps -l
   ```
 
