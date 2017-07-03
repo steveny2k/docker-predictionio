@@ -35,9 +35,8 @@ This container uses Apache Spark, HBase and Elasticsearch. The PredictionIO vers
   $ jps -l
   ```
 
-3. Try examples
-  1. Similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
-    1. 
+3. Try an example: similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
+   
 
 
 
