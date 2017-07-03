@@ -2,6 +2,8 @@ This project is derived from sphereio/docker-predictionio
 
 The doc file of PredictionIO pointing to this repo is at http://predictionio.incubator.apache.org/community/projects/#docker-installation-for-predictionio
 
+This Dockerfile is for PredictionIO v0.11.0
+
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
 
