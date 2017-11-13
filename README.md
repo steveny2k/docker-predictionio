@@ -2,7 +2,7 @@ This project is derived from sphereio/docker-predictionio
 
 The doc file of PredictionIO pointing to this repo is at http://predictionio.incubator.apache.org/community/projects/#docker-installation-for-predictionio
 
-This Dockerfile is for PredictionIO v0.10.0
+The master branch of this project is for the PredictionIO stable version 0.10.0, and other branches are for newer PredictionIO stable versions (for example, 0.12.0)
 
 # PredictionIO docker container
 Docker container for PredictionIO-based machine learning services
@@ -13,7 +13,7 @@ Docker container for PredictionIO-based machine learning services
 server for developers and data scientists to build and deploy predictive
 applications in a fraction of the time.
 
-This container uses Apache Spark, HBase and Elasticsearch. The master branch is for the PredictionIO stable version 0.10.0, and other branches are for newer PredictionIO stable versions (for example, 0.12.0)
+This container uses Apache Spark, HBase and Elasticsearch. 
 
 1. First, do either a) or b) below
 
