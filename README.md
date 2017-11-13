@@ -47,6 +47,14 @@ This container uses Apache Spark, HBase and Elasticsearch.
 
 3. Try an example: similar Product Engine Template (details in http://predictionio.incubator.apache.org/templates/similarproduct/quickstart/)
    
+=========================
 
+Note to myself:
+
+command lines to build and push docker image:
+```Bash
+$ docker build -t steveny/predictionio:0.12.0 .
+$ docker push steveny/predictionio:0.12.0
+```
 
 
