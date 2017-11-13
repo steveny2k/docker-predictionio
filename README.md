@@ -16,12 +16,14 @@ applications in a fraction of the time.
 This container uses Apache Spark, HBase and Elasticsearch. The PredictionIO version is the latest stable version 0.10.0.
 
 1. First, do either a) or b) below
-  a). (faster; stable version) obtain docker image from public docker registry:
+
+    a). (faster; stable version) obtain docker image from public docker registry:
 
     ```Bash
     $ docker run -it -p 8000:8000 steveny/predictionio /bin/bash
     ```
-  b). (slower) build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
+    
+    b). (slower) build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
     
     ```Bash
     $ docker build -t predictionio .
