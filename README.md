@@ -23,7 +23,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
     $ docker run -it -p 8000:8000 steveny/predictionio /bin/bash
     ```
     
-    b). (slower) build docker image from local Dockerfile: cd to the path containing the Dockerfile, then:
+    b). (slower) build docker image from local Dockerfile: git checkout the desired branch; cd to the path containing the Dockerfile, then:
     
     ```Bash
     $ docker build -t predictionio .
