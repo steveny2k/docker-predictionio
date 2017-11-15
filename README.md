@@ -54,6 +54,7 @@ Note to myself:
 command lines to build and push docker image:
 ```Bash
 $ docker build -t steveny/predictionio:0.12.0 .
+$ docker run --rm -it -p 8000:8000 steveny/predictionio:0.12.0 /bin/bash
 $ docker push steveny/predictionio:0.12.0
 ```
 
