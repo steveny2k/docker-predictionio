@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export JAVA_HOME=/opt/jdk
+
 PIO_FS_BASEDIR=${HOME}/.pio_store
 PIO_FS_ENGINESDIR=${PIO_FS_BASEDIR}/engines
 PIO_FS_TMPDIR=${PIO_FS_BASEDIR}/tmp
