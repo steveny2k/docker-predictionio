@@ -8,26 +8,12 @@ ENV HBASE_VERSION 1.2.6
 
 ENV PIO_HOME /PredictionIO-${PIO_VERSION}-incubating
 ENV PATH=${PIO_HOME}/bin:$PATH
-ENV JAVA_VERSION_MAJOR=8 \
-    JAVA_VERSION_MINOR=141 \
-    JAVA_VERSION_BUILD=15 \
-    JAVA_PACKAGE=server-jre \
-    JAVA_HOME=/opt/jdk \
-    PATH=${PATH}:/opt/jdk/bin
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 RUN apt-get update \
-    && apt-get install -y --auto-remove --no-install-recommends curl libgfortran3 python-pip wget \
+    && apt-get install -y --auto-remove --no-install-recommends curl libgfortran3 python-pip wget openjdk-8-jdk \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-RUN curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz \
-    http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/336fa29ff2bb4ef291e347e091f7f4a7/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
-    && gunzip /tmp/java.tar.gz \
-    && tar -C /opt -xf /tmp/java.tar \
-    && ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jdk \
-    && find /opt/jdk/ -maxdepth 1 -mindepth 1 | grep -v jre | xargs rm -rf \
-    && cd /opt/jdk/ \
-    && ln -s ./jre/bin ./bin
 
 RUN curl -O http://apache.mirrors.pair.com/incubator/predictionio/${PIO_VERSION}-incubating/apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
     && mkdir apache-predictionio-${PIO_VERSION}-incubating \

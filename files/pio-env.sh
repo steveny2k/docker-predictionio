@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export JAVA_HOME=/opt/jdk
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
 PIO_FS_BASEDIR=${HOME}/.pio_store
 PIO_FS_ENGINESDIR=${PIO_FS_BASEDIR}/engines
