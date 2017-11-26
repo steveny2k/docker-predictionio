@@ -37,8 +37,6 @@ This container uses Apache Spark, HBase and Elasticsearch.
 2. Then in docker container, start all services 
   ```Bash
   $ pio-start-all
-  or 
-  $ pio eventserver &  # if using PostgreSQL or MySQL
   ```
    and check if they are started
   ```Bash
