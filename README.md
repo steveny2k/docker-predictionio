@@ -20,6 +20,10 @@ This container uses Apache Spark, HBase and Elasticsearch.
     a). (faster; stable version) obtain docker image from public docker registry:
 
     ```Bash
+    # for version 0.12.0
+    $ docker run -it -p 8000:8000 steveny/predictionio:0.12.0 /bin/bash
+    
+    # for version 0.10.0
     $ docker run -it -p 8000:8000 steveny/predictionio /bin/bash
     ```
     
