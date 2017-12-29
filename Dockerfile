@@ -15,6 +15,10 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Switch to a none root user.
+USER pio
+
+# Install Predictionio.
 RUN curl -O http://apache.mirrors.pair.com/incubator/predictionio/${PIO_VERSION}-incubating/apache-predictionio-${PIO_VERSION}-incubating.tar.gz \
     && mkdir apache-predictionio-${PIO_VERSION}-incubating \
     && tar -xvzf apache-predictionio-${PIO_VERSION}-incubating.tar.gz -C ./apache-predictionio-${PIO_VERSION}-incubating \
@@ -27,6 +31,7 @@ RUN rm -r /apache-predictionio-${PIO_VERSION}-incubating
 RUN mkdir /${PIO_HOME}/vendors
 COPY files/pio-env.sh ${PIO_HOME}/conf/pio-env.sh
 
+# Install Spark.
 RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.1-bin-hadoop2.6.tgz \
     && tar zxvfC spark-2.1.1-bin-hadoop2.6.tgz PredictionIO-${PIO_VERSION}-incubating/vendors \
     && rm spark-${SPARK_VERSION}-bin-hadoop2.6.tgz
@@ -38,12 +43,14 @@ RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Install elastic search.
 RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz \
     && tar -xvzf elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz -C ${PIO_HOME}/vendors \
     && rm elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz \
     && echo 'cluster.name: predictionio' >> ${PIO_HOME}/vendors/elasticsearch-${ELASTICSEARCH_VERSION}/config/elasticsearch.yml \
     && echo 'network.host: 127.0.0.1' >> ${PIO_HOME}/vendors/elasticsearch-${ELASTICSEARCH_VERSION}/config/elasticsearch.yml
 
+#Install Hbase
 RUN curl -O http://apache.mirrors.hoobly.com/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz \
     && tar -xvzf hbase-${HBASE_VERSION}-bin.tar.gz -C ${PIO_HOME}/vendors \
     && rm hbase-${HBASE_VERSION}-bin.tar.gz
