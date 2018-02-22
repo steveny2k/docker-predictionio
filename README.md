@@ -22,7 +22,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
     ```Bash
     # for version 0.12.0
     $ docker run -it -p 8000:8000 steveny/predictionio:0.12.0 /bin/bash
-    (verison 0.12.0 has issue for now; see details in Issues section)
+    (verison 0.12.0 issue is fixed by helpful people in Dockerfile; will create docker image when having a chance and push to docker registry; see details in Issues section)
     
     # for version 0.10.0
     $ docker run -it -p 8000:8000 steveny/predictionio /bin/bash
