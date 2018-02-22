@@ -2,6 +2,8 @@
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
+ES_JAVA_OPTS="-Xms750m -Xmx750m"
+
 PIO_FS_BASEDIR=${HOME}/.pio_store
 PIO_FS_ENGINESDIR=${PIO_FS_BASEDIR}/engines
 PIO_FS_TMPDIR=${PIO_FS_BASEDIR}/tmp
