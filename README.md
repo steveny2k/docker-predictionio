@@ -42,7 +42,8 @@ This container uses Apache Spark, HBase and Elasticsearch.
   ```Bash
   $ pio-start-all
   ```
-  Ignore the error message ```/PredictionIO-0.10.0-incubating/bin/pio-start-all: line 74: sudo: command not found```
+  Ignore the error message 
+  ```/PredictionIO-0.10.0-incubating/bin/pio-start-all: line 74: sudo: command not found```
   
    and check if they are started
   ```Bash
