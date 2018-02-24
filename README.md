@@ -45,7 +45,7 @@ This container uses Apache Spark, HBase and Elasticsearch.
   For the case of `version 0.10.0`, ignore the error message 
   ```/PredictionIO-0.10.0-incubating/bin/pio-start-all: line 74: sudo: command not found```
   
-   and check if they are started
+   and check if all the installed services (HBase, Elastic Search, PredictionIO) are started
   ```Bash
   $ jps -l
   ```
